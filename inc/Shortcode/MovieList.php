@@ -12,17 +12,18 @@ class MovieList implements Service {
 	}
 
 	// The shortcode function
-	function short_code_callback() {
+	function short_code_callback($attributes): bool|string {
 		global $wp_query;
-		$args = array(
+		$args = [
 			'post_type' => 'movie',
 			'post_status' => 'publish',
-			'posts_per_page' => 8,
-			'orderby' => 'id',
-	        'order' => 'DESC',
-	    );
+			'posts_per_page' => $attributes['posts_per_page'] ?? 10,
+			'orderby' => $attributes['orderby'] ?? 'id',
+	        'order' => $attributes['order'] ?? 'DESC',
+		];
 
 		$wp_query = new WP_Query( $args );
+
 		ob_start();
 		piramir_get_template_part('movies/list');
 		return ob_get_clean();
