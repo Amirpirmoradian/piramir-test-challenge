@@ -1,0 +1,24 @@
+.movies-list-container{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.movies-list{
+    list-style: none;
+}
+.movie-item{
+    padding: 5px;
+    cursor: pointer;
+}
+.movie-item:hover{
+    background-color: #b4b4b4;
+}
+.movie-item:not(:last-child){
+    border-bottom: 2px solid #b4b4b4;
+}
+
+.movie-item a{
+    text-decoration: none;
+    color: black;
+}
