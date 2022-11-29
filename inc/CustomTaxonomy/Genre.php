@@ -15,8 +15,8 @@ class Genre implements Service {
 
 	function add_custom_taxonomies() {
 		// Add new "Locations" taxonomy to Posts
-		register_taxonomy(strtolower( $this->taxonomy_singular_name ),
-			'book',
+		register_taxonomy(strtolower( $this->taxonomy_name ),
+			'movie',
 			array(
 				'hierarchical' => true,
 				'labels' => array(
@@ -32,9 +32,10 @@ class Genre implements Service {
 					'new_item_name' => __( 'New ' . $this->taxonomy_singular_name . ' Name' ),
 					'menu_name' => __( $this->taxonomy_name ),
 				),
+				'show_in_rest'       => true,
 				// Control the slugs used for this taxonomy
 				'rewrite' => array(
-					'slug' => strtolower( $this->taxonomy_singular_name ),
+					'slug' => strtolower( $this->taxonomy_name ),
 					'with_front' => false,
 					'hierarchical' => true
 				),

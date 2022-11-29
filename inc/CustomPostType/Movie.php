@@ -9,8 +9,8 @@ use Piramir\Service;
 
 class Movie implements Service {
 
-	private $post_type_name = 'Books';
-	private $post_type_singular_name = 'Book';
+	private $post_type_name = 'Movies';
+	private $post_type_singular_name = 'Movie';
 
 
 	public function register(): void {
@@ -38,9 +38,10 @@ class Movie implements Service {
 					'not_found'          => __( 'No ' . strtolower( $this->post_type_name ) . ' found.'),
 					'not_found_in_trash' => __( 'No ' . strtolower( $this->post_type_name ) . ' found in Trash.' )
 				),
+				'show_in_rest'       => true,
 				'public'             => true,
 				'hierarchical'       => false,
-				'rewrite'            => array( 'slug' => $this->post_type_name ),
+				'rewrite'            => array( 'slug' => strtolower($this->post_type_name) ),
 			)
 		);
 
