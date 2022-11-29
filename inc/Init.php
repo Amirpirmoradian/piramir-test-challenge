@@ -7,11 +7,14 @@
 namespace Piramir;
 
 
+use Piramir\CustomTaxonomy\Genre;
+
 final class init {
 
 	public static function get_services(): array {
 		return [
-			CustomPostType\Movie::class
+			CustomPostType\Movie::class,
+			Genre::class
 		];
 	}
 

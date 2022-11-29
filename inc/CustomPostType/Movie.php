@@ -20,7 +20,7 @@ class Movie implements Service {
 	public function create_post_type(): void {
 
 		register_post_type(
-			strtolower( $this->post_type_name ),
+			strtolower( $this->post_type_singular_name ),
 			array(
 				'labels' => array(
 					'name'               => _x( $this->post_type_name, 'post type general name' ),
