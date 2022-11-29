@@ -22,8 +22,8 @@ class Genre implements Service {
 				'labels' => array(
 					'name' => _x( $this->taxonomy_name, 'taxonomy general name' ),
 					'singular_name' => _x( $this->taxonomy_singular_name, 'taxonomy singular name' ),
-					'search_items' =>  __( 'Search$this->>$this->taxonomy_name' ),
-					'all_items' => __( 'All$this->>$this->taxonomy_name' ),
+					'search_items' =>  __( 'Search '. $this->taxonomy_name ),
+					'all_items' => __( 'All ' . $this->taxonomy_name ),
 					'parent_item' => __( 'Parent '. $this->taxonomy_singular_name ),
 					'parent_item_colon' => __( 'Parent '.$this->taxonomy_singular_name.':' ),
 					'edit_item' => __( 'Edit ' . $this->taxonomy_singular_name ),
