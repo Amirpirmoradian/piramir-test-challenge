@@ -3,16 +3,16 @@ global $wp_query;
 ?>
 
 <div class="movies-list-container">
-	<ul class="movies-list">
+    <ul class="movies-list">
 		<?php
-		while($wp_query->have_posts()){
-		    $wp_query->the_post();
-		?>
+		while ( $wp_query->have_posts() ) {
+			$wp_query->the_post();
+			?>
             <li class="movie-item">
-                <a href="<?php echo get_permalink(get_the_ID())?>"><?php the_title()?></a>
+                <a href="<?php echo get_permalink( get_the_ID() ) ?>"><?php the_title() ?></a>
             </li>
-        <?php
+			<?php
 		}
-        ?>
-	</ul>
+		?>
+    </ul>
 </div>

@@ -1,5 +1,5 @@
 <?php
-if(! function_exists('add_action')){
+if ( ! function_exists( 'add_action' ) ) {
 	die();
 }
 
@@ -8,4 +8,4 @@ if(! function_exists('add_action')){
 //
 //global $wpdb;
 //
-$wpdb->query('DELETE FROM '.$wpdb->prefix.'posts WHERE');
+$wpdb->query( 'DELETE FROM ' . $wpdb->prefix . 'posts WHERE' );

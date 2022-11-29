@@ -1,13 +1,14 @@
 <?php
-if(! function_exists('piramir_get_template_part')){
+if ( ! function_exists( 'piramir_get_template_part' ) ) {
 	function piramir_get_template_part( $slug, $name = null, $load = true ): bool|string {
 		// Execute code for this part
 		do_action( 'get_template_part_' . $slug, $slug, $name );
 
 		// Setup possible parts
 		$templates = array();
-		if ( isset( $name ) )
+		if ( isset( $name ) ) {
 			$templates[] = $slug . '-' . $name . '.php';
+		}
 		$templates[] = $slug . '.php';
 
 		// Allow template parts to be filtered
@@ -18,7 +19,7 @@ if(! function_exists('piramir_get_template_part')){
 	}
 }
 
-if(! function_exists('piramir_locate_template')){
+if ( ! function_exists( 'piramir_locate_template' ) ) {
 	function piramir_locate_template( $template_names, $load = false, $require_once = true ): bool|string {
 		// No file found yet
 		$located = false;
@@ -27,8 +28,9 @@ if(! function_exists('piramir_locate_template')){
 		foreach ( (array) $template_names as $template_name ) {
 
 			// Continue if template is empty
-			if ( empty( $template_name ) )
+			if ( empty( $template_name ) ) {
 				continue;
+			}
 
 			// Trim off any slashes from the template name
 			$template_name = ltrim( $template_name, '/' );
@@ -49,8 +51,9 @@ if(! function_exists('piramir_locate_template')){
 			}
 		}
 
-		if ( ( true == $load ) && ! empty( $located ) )
+		if ( ( true == $load ) && ! empty( $located ) ) {
 			load_template( $located, $require_once );
+		}
 
 		return $located;
 	}

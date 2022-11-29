@@ -22,10 +22,10 @@ final class Init {
 	}
 
 	public static function register_services(): void {
-		foreach (self::get_services() as $class){
-			$service = self::instantiate($class);
+		foreach ( self::get_services() as $class ) {
+			$service = self::instantiate( $class );
 
-			if( method_exists($service, 'register')){
+			if ( method_exists( $service, 'register' ) ) {
 				$service->register();
 			}
 

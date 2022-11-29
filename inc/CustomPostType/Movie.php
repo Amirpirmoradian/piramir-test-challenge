@@ -9,10 +9,6 @@ use Piramir\Service;
 
 class Movie implements Service {
 
-	private $post_type_name = 'Movies';
-	private $post_type_singular_name = 'Movie';
-
-
 	public function register(): void {
 		add_action( 'init', array( $this, 'create_post_type' ) );
 		add_action( 'add_meta_boxes', array( $this, 'meta_box_for_movie' ) );
@@ -20,11 +16,10 @@ class Movie implements Service {
 	}
 
 
-
 	public function create_post_type(): void {
 
 		register_post_type(
-			strtolower( $this->post_type_singular_name ),
+			'movie',
 			array(
 				'labels'       => array(
 					'name'               => _x( 'Movies', 'post type general name', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
