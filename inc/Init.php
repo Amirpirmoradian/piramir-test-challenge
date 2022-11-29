@@ -6,15 +6,13 @@
 
 namespace Piramir;
 
-
-use Piramir\CustomTaxonomy\Genre;
-
-final class init {
+final class Init {
 
 	public static function get_services(): array {
 		return [
 			CustomPostType\Movie::class,
-			Genre::class
+			CustomTaxonomy\Genre::class,
+			Shortcode\MovieList::class
 		];
 	}
 

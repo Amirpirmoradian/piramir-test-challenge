@@ -24,12 +24,13 @@ if(! function_exists('add_action')){
 	die();
 }
 
-require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 define('PIRAMIR_CHALLENGE_TEST_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('PIRAMIR_CHALLENGE_TEST_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('PIRAMIR_CHALLENGE_TEST_PLUGIN_BASE_NAME', plugin_basename(__FILE__));
+define('PIRAMIR_CHALLENGE_TEST_TEMPLATES_DIR', plugin_dir_path(__FILE__) . 'templates');
 
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 register_activation_hook(__FILE__, 'activate_piramir_plugin');
 register_deactivation_hook(__FILE__, 'deactivate_piramir_plugin');
