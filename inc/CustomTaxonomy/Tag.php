@@ -14,7 +14,7 @@ class Tag implements Service {
 
 	function add_custom_taxonomies() {
 		// Add new "tag" taxonomy to Movies
-		register_taxonomy( 'tag',
+		register_taxonomy( 'movie_tag',
 			'movie',
 			array(
 				'hierarchical' => true,
@@ -34,7 +34,7 @@ class Tag implements Service {
 				'show_in_rest' => true,
 				// Control the slugs used for this taxonomy
 				'rewrite'      => array(
-					'slug'         => 'tag',
+					'slug'         => 'movie_tag',
 					'with_front'   => false,
 					'hierarchical' => true
 				),
