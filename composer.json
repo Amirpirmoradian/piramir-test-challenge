@@ -1,0 +1,19 @@
+{
+    "name": "piramir/piramir-challenge-test",
+    "description": "Challenge test for Realtyna",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Amir Pirmoradian",
+            "email": "piramir77@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Piramir\\": "./inc"
+        }
+    }
+}
