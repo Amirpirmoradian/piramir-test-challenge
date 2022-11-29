@@ -1,6 +1,8 @@
 <?php
-//Define Dirpath for hooks
-define( 'DIR_PATH', plugin_dir_path( __FILE__ ) );
+
+/**
+ * @package PiramirChallengeTest
+ */
 
 /**
 	* Plugin Name:       Piramir Challenge test for Realtyna
@@ -18,34 +20,29 @@ define( 'DIR_PATH', plugin_dir_path( __FILE__ ) );
 */
 
 
-if ( ! class_exists( 'PiramirChallengeTest' ) ) {
-	class PiramirChallengeTest {
-		public function __construct() {
-			$this->setup_actions();
-		}
-		public function setup_actions(): void {
-			//Main plugin hooks
-			register_activation_hook( DIR_PATH, array( 'PiramirChallengeTest', 'activate' ) );
-			register_deactivation_hook( DIR_PATH, array( 'PiramirChallengeTest', 'deactivate' ) );
-		}
+if(! function_exists('add_action')){
+	die();
+}
 
-		/**
-		 * Activate callback
-		 */
-		public static function activate(): void {
-			//Activation code in here
-		}
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 
-		/**
-		 * Deactivate callback
-		 */
-		public static function deactivate(): void {
-			//Deactivation code in here
-		}
-
-	}
+define('PIRAMIR_CHALLENGE_TEST_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('PIRAMIR_CHALLENGE_TEST_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('PIRAMIR_CHALLENGE_TEST_PLUGIN_BASE_NAME', plugin_basename(__FILE__));
 
 
-	// instantiate the plugin class
-	$piramirChallengeTest = new PiramirChallengeTest();
+register_activation_hook(__FILE__, 'activate_piramir_plugin');
+register_deactivation_hook(__FILE__, 'deactivate_piramir_plugin');
+
+
+function activate_piramir_plugin(): void {
+	flush_rewrite_rules();
+}
+
+function deactivate_piramir_plugin(): void {
+	flush_rewrite_rules();
+}
+
+if( class_exists('Piramir\\Init')){
+	\Piramir\init::register_services();
 }
