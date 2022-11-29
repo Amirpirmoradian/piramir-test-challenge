@@ -12,10 +12,11 @@ final class Init {
 	public static function get_services(): array {
 		return [
 			Base\Enqueue::class,
+			Base\Language::class,
 			CustomPostType\Movie::class,
 			CustomTaxonomy\Genre::class,
 			Shortcode\MovieList::class,
-			Widget\MoviesCount::class
+			Widget\MoviesCount::class,
 		];
 	}
 

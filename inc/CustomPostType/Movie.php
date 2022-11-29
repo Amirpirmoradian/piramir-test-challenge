@@ -22,26 +22,26 @@ class Movie implements Service {
 		register_post_type(
 			strtolower( $this->post_type_singular_name ),
 			array(
-				'labels' => array(
-					'name'               => _x( $this->post_type_name, 'post type general name' ),
-					'singular_name'      => _x( $this->post_type_singular_name, 'post type singular name'),
-					'menu_name'          => _x( $this->post_type_name, 'admin menu' ),
-					'name_admin_bar'     => _x( $this->post_type_singular_name, 'add new on admin bar' ),
-					'add_new'            => _x( 'Add New', strtolower( $this->post_type_name ) ),
-					'add_new_item'       => __( 'Add New ' . $this->post_type_singular_name ),
-					'new_item'           => __( 'New ' . $this->post_type_singular_name ),
-					'edit_item'          => __( 'Edit ' . $this->post_type_singular_name ),
-					'view_item'          => __( 'View ' . $this->post_type_singular_name ),
-					'all_items'          => __( 'All ' . $this->post_type_name ),
-					'search_items'       => __( 'Search ' . $this->post_type_name ),
-					'parent_item_colon'  => __( 'Parent :' . $this->post_type_name ),
-					'not_found'          => __( 'No ' . strtolower( $this->post_type_name ) . ' found.'),
-					'not_found_in_trash' => __( 'No ' . strtolower( $this->post_type_name ) . ' found in Trash.' )
+				'labels'       => array(
+					'name'               => _x( 'Movies', 'post type general name', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'singular_name'      => _x( 'Movie', 'post type singular name', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'menu_name'          => _x( 'Movies', 'admin menu', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'name_admin_bar'     => _x( 'Movies', 'add new on admin bar', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'add_new'            => __( 'Add New', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'add_new_item'       => __( 'Add New Movie', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'new_item'           => __( 'New Movie', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'edit_item'          => __( 'Edit Movie', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'view_item'          => __( 'View Movie', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'all_items'          => __( 'All Movies', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'search_items'       => __( 'Search Movies', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'parent_item_colon'  => __( 'Parent :', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'not_found'          => __( 'No movie found.', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN ),
+					'not_found_in_trash' => __( 'No movie found in Trash.', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN )
 				),
-				'show_in_rest'       => true,
-				'public'             => true,
-				'hierarchical'       => false,
-				'rewrite'            => array( 'slug' => strtolower($this->post_type_name) ),
+				'show_in_rest' => true,
+				'public'       => true,
+				'hierarchical' => false,
+				'rewrite'      => array( 'slug' => 'movie' ),
 			)
 		);
 
