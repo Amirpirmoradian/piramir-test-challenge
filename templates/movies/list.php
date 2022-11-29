@@ -9,7 +9,7 @@ global $wp_query;
 		    $wp_query->the_post();
 		?>
             <li class="movie-item">
-                <a href="<?php get_permalink(get_the_ID())?>"><?php the_title()?></a>
+                <a href="<?php echo get_permalink(get_the_ID())?>"><?php the_title()?></a>
             </li>
         <?php
 		}
