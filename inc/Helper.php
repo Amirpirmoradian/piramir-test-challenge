@@ -1,5 +1,14 @@
 <?php
 if ( ! function_exists( 'piramir_get_template_part' ) ) {
+	/**
+	 * get template part
+	 *
+	 * @param $slug
+	 * @param $name
+	 * @param $load
+	 *
+	 * @return bool|string
+	 */
 	function piramir_get_template_part( $slug, $name = null, $load = true ): bool|string {
 		// Execute code for this part
 		do_action( 'get_template_part_' . $slug, $slug, $name );
@@ -20,6 +29,18 @@ if ( ! function_exists( 'piramir_get_template_part' ) ) {
 }
 
 if ( ! function_exists( 'piramir_locate_template' ) ) {
+	/**
+	 *
+	 * try to find template in diffrent location
+	 * first try theme
+	 * second try parent theme
+	 * last try plugin folder
+	 * @param $template_names
+	 * @param $load
+	 * @param $require_once
+	 *
+	 * @return bool|string
+	 */
 	function piramir_locate_template( $template_names, $load = false, $require_once = true ): bool|string {
 		// No file found yet
 		$located = false;

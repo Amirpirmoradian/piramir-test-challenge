@@ -10,6 +10,10 @@ namespace Piramir;
 
 final class Init {
 
+	/**
+	 * Get a list of all services we need to register in our plugin
+	 * @return string[]
+	 */
 	public static function get_services(): array {
 		return [
 			Base\Enqueue::class,
@@ -24,6 +28,11 @@ final class Init {
 		];
 	}
 
+	/**
+	 * get an instance of all services and try to call register method on them if exists
+	 *
+	 * @return void
+	 */
 	public static function register_services(): void {
 		foreach ( self::get_services() as $class ) {
 			$service = self::instantiate( $class );
@@ -35,7 +44,14 @@ final class Init {
 		}
 	}
 
-	private static function instantiate( $class ) {
+	/**
+	 * create a new instance of given class
+	 *
+	 * @param $class
+	 *
+	 * @return mixed
+	 */
+	private static function instantiate( $class ): mixed {
 		return new $class();
 	}
 
