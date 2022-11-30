@@ -14,24 +14,20 @@ $wpdb->query( "DELETE a,b,c
         ON (a.ID = c.post_id)
     WHERE a.post_type = 'movie';" );
 
+/** Delete All the Taxonomies */
+foreach ( array( 'genre', 'movie_tag' ) as $taxonomy ) {
+	// Prepare & excecute SQL
+	$terms = $wpdb->get_results( $wpdb->prepare( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE tt.taxonomy IN ('%s') ORDER BY t.name ASC", $taxonomy ) );
 
-//delete all genres
-$taxonomy_name = 'genre';
-$terms = get_terms( array(
-	'taxonomy' => $taxonomy_name,
-	'hide_empty' => false
-) );
-foreach ( $terms as $term ) {
-	wp_delete_term($term->term_id, $taxonomy_name);
+	// Delete Terms
+	if ( $terms ) {
+		foreach ( $terms as $term ) {
+			$wpdb->delete( $wpdb->term_taxonomy, array( 'term_taxonomy_id' => $term->term_taxonomy_id ) );
+			$wpdb->delete( $wpdb->terms, array( 'term_id' => $term->term_id ) );
+			delete_option( 'prefix_' . $taxonomy->slug . '_option_name' );
+		}
+	}
+
+	// Delete Taxonomy
+	$wpdb->delete( $wpdb->term_taxonomy, array( 'taxonomy' => $taxonomy ), array( '%s' ) );
 }
-
-//delete all movie_tags
-$taxonomy_name = 'movie_tag';
-$terms = get_terms( array(
-	'taxonomy' => $taxonomy_name,
-	'hide_empty' => false
-) );
-foreach ( $terms as $term ) {
-	wp_delete_term($term->term_id, $taxonomy_name);
-}
-
