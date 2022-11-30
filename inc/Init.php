@@ -16,6 +16,7 @@ final class Init {
 			CustomPostType\Movie::class,
 			CustomTaxonomy\Genre::class,
 			CustomTaxonomy\Tag::class,
+			Template\SingleMovie::class,
 			Shortcode\MovieList::class,
 			Widget\MoviesCount::class,
 		];
