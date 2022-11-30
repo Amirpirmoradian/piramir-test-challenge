@@ -7,6 +7,7 @@
 namespace Piramir;
 
 
+
 final class Init {
 
 	public static function get_services(): array {
@@ -16,6 +17,7 @@ final class Init {
 			CustomPostType\Movie::class,
 			CustomTaxonomy\Genre::class,
 			CustomTaxonomy\Tag::class,
+			CustomMetaBox\ExtraInfo::class,
 			Template\SingleMovie::class,
 			Shortcode\MovieList::class,
 			Widget\MoviesCount::class,
