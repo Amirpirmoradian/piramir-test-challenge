@@ -4,30 +4,30 @@ namespace Piramir\CustomMetaBox;
 
 use Piramir\Service;
 
-class ExtraInfo implements Service {
+class ExtraInfo implements Service, CustomMetaBox {
 
 	public function register() {
-		add_action( 'add_meta_boxes', array( $this, 'meta_box_for_movie' ) );
-		add_action( 'save_post', array( $this, 'extra_info_save_meta_boxes_data' ), 10, 2 );
+		add_action( 'add_meta_boxes', array( $this, 'register_meta_box' ) );
+		add_action( 'save_post', array( $this, 'meta_box_save' ), 10, 2 );
 	}
 
-	function meta_box_for_movie( $post ) {
+	function register_meta_box( $post ) {
 		add_meta_box(
 			'extra_info',
 			__('Extra Info', PIRAMIR_CHALLENGE_TEST_TEXT_DOMAIN),
-			array($this, 'extra_info_callback'),
+			array($this, 'meta_box_callback'),
 			'movie',
 			'normal',
 			'high'
 		);
 	}
 
-	function extra_info_callback( $post ) {
+	function meta_box_callback( $post ) {
 		wp_nonce_field( basename( __FILE__ ), 'extra_info_nonce' );
 		echo '<textarea name="extra_info">' . get_post_meta( $post->ID, 'extra_info', true ) . '</textarea>';
 	}
 
-	function extra_info_save_meta_boxes_data( $post_id ){
+	function meta_box_save( $post_id ){
 		// check for nonce to top xss
 		if ( !isset( $_POST['extra_info_nonce'] ) || !wp_verify_nonce( $_POST['extra_info_nonce'], basename( __FILE__ ) ) ){
 			return;

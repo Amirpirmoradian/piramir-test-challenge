@@ -8,7 +8,7 @@
 	* Plugin Name:       Piramir Challenge test for Realtyna
 	* Plugin URI:        https://realtyna.com/plugins/challenge-test/
 	* Description:       This is my first project for Realtyna, Hope they find out that it should not be last
-	* Version:           1.0
+	* Version:           1.1
 	* Requires at least: 5.2
 	* Requires PHP:      7.2
 	* Author:            Amir Pirmordian

@@ -4,7 +4,7 @@ namespace Piramir\CustomTaxonomy;
 
 use Piramir\Service;
 
-class Genre implements Service {
+class Genre implements Service, CustomTaxonomy {
 
 	public function register() {
 		add_action( 'init', array( $this, 'add_custom_taxonomies' ) );

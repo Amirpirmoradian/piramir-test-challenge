@@ -5,15 +5,15 @@ namespace Piramir\Shortcode;
 use Piramir\Service;
 use WP_Query;
 
-class MovieList implements Service {
+class MovieList implements Service, Shortcode {
 
 	public function register() {
 		add_shortcode( 'movies_list', array( $this, 'short_code_callback' ) );
 	}
 
 	// The shortcode function
-	function short_code_callback( $attributes ): bool|string {
-		global $wp_query;
+	function short_code_callback( $attributes ) {
+		global $movies_list;
 		$args = [
 			'post_type'      => 'movie',
 			'post_status'    => 'publish',
@@ -22,7 +22,7 @@ class MovieList implements Service {
 			'order'          => $attributes['order'] ?? 'DESC',
 		];
 
-		$wp_query = new WP_Query( $args );
+		$movies_list = new WP_Query( $args );
 
 		ob_start();
 		piramir_get_template_part( 'movies/list' );

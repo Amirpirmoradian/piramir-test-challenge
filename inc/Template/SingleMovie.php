@@ -4,20 +4,20 @@ namespace Piramir\Template;
 
 use Piramir\Service;
 
-class SingleMovie implements Service {
+class SingleMovie implements Service, Template {
 
 	public function register() {
-		add_filter( 'single_template', array( $this, 'get_custom_post_type_template' ) );
+		add_filter( 'single_template', array( $this, 'set_custom_template' ) );
 
 	}
 
-	function get_custom_post_type_template( $single_template ) {
+	function set_custom_template( $template ) {
 		global $post;
 
 		if ( 'movie' === $post->post_type ) {
-			$single_template = piramir_get_template_part( 'movies/single' );
+			$template = piramir_get_template_part( 'movies/single' );
 		}
 
-		return $single_template;
+		return $template;
 	}
 }

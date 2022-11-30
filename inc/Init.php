@@ -16,7 +16,7 @@ use Piramir\CustomTaxonomy\Tag;
 use Piramir\Shortcode\MovieList;
 use Piramir\Template\SingleMovie;
 use Piramir\Widget\MoviesCount;
-
+use Composer\Autoload\ClassLoader;
 final class Init {
 
 	/**
@@ -25,6 +25,7 @@ final class Init {
 	 */
 	public static function get_services(): array {
 
+		//in much bigger scale we can autoload classes from a folder
 		$base = [
 			Enqueue::class,
 			Language::class

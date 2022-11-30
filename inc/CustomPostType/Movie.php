@@ -7,12 +7,12 @@ namespace Piramir\CustomPostType;
 
 use Piramir\Service;
 
-class Movie implements Service {
+class Movie implements Service, CustomPostType {
 
 	public function register(): void {
 		add_action( 'init', array( $this, 'create_post_type' ) );
-
 	}
+
 	public function create_post_type(): void {
 
 		register_post_type(

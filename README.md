@@ -17,17 +17,19 @@ This is an test plugin that I deveolped as test challenge for Realtyna
 The structure design that I choose is not the best for small plugins, but I Wanted to show you how I can handle big plugins with lots of classes. of course there is other options.
 
 
-if there is gonna be a lots of custom post types or custom taxonomy or ... we can define an interface for them to maintain clean code then try loading all of them at once like what I did in ```Init.php```.
+if there is going to be a lots of custom post types or custom taxonomy or ... we can define an interface for them to maintain clean code then try loading all of them at once like what I did in ```Init.php```.
+
+I defined Interfaces for each service for example for custom post type or widgets 
 
 
 I used composer psr4 autoload to load all my classes in inc folder and add a helper file(see ```./inc/Helper.php```).
 
 
-I created new taxonomy called movie tags, but I could use wordpress post-tag by adding ```'taxonomies' => array('post_tag')``` to custom post register args.
+I created new taxonomy called movie tags, but I could use WordPress post-tag by adding ```'taxonomies' => array('post_tag')``` to custom post register args.
 
-I developed a two functions in ```Helper.php``` that are responsible for finding right template files. it first tries to find them in child theme then parent theme and if it didn't find the template in either of them it will use plugins templates.
+I developed two functions in ```Helper.php``` that are responsible for finding right template files. it first tries to find them in child theme then parent theme and if it didn't find the template in either of them it will use plugins templates.
 
-I created template file for movies single page(see ```./templates/movies/single.php```) but I did not make a beautifull cuase this job apply is for back-end developer not front-end developer
+I created template file for movies single page(see ```./templates/movies/single.php```) but I did not make it beautiful because this job apply is for back-end developer not front-end developer
 ## Installation
 Just copy plugin folder into ```wp-content/plugins``` or try installing using WordPress dashboard
 

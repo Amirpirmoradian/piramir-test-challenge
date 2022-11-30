@@ -4,10 +4,7 @@ namespace Piramir\CustomTaxonomy;
 
 use Piramir\Service;
 
-class Tag implements Service {
-	private $taxonomy_name = 'Tags';
-	private $taxonomy_singular_name = 'Tag';
-
+class Tag implements Service, CustomTaxonomy {
 	public function register() {
 		add_action( 'init', array( $this, 'add_custom_taxonomies' ) );
 	}

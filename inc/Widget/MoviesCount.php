@@ -4,7 +4,7 @@ namespace Piramir\Widget;
 
 use Piramir\Service;
 
-class MoviesCount extends \WP_Widget implements Service {
+class MoviesCount extends \WP_Widget implements Service, Widget {
 
 	public function register() {
 		add_action( 'widgets_init', array( $this, 'register_widget' ) );
